@@ -1,5 +1,5 @@
 mysql_rootpass: ExpenseApp1
-.com
+mysql_hostlogin: mysql-dev.dev.divyavutakanti.com
 packages: 
 - nodejs
 - mysql 
