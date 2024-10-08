@@ -1,0 +1,7 @@
+mysql_rootpass: ExpenseApp1
+.com
+packages: 
+- nodejs
+- mysql 
+app_location: /app 
+component: backend

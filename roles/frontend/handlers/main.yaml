@@ -1,0 +1,6 @@
+- name: Restart nginx 
+  tags:
+  - deployment
+  ansible.builtin.service:
+    name: nginx 
+    state: restarted
