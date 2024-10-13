@@ -1,25 +1,26 @@
-- name: install nginx 
+- name: install nginx server
   ansible.builtin.package:
-    name: nginx 
+    name: nginx
     state: present
-- name: start nginx
-  ansible.builtin.service: 
-    name: nginx 
-    state: started 
-- name: import common tasks from another role
-  tags:
-  - deployment
+- name: start nginx server
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: import tasks from common role
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
-- name: copy the expense.conf 
+
+- name: copy expense conf
   ansible.builtin.template:
     src: expense.conf.j2
-    dest: /etc/nginx/default.d/expense.conf 
-  notify:
+    dest: /etc/nginx/default.d/expense.conf
+  notify: 
   - Restart nginx
 
-# - name: restart nginx 
+# - name: restart nginx
 #   ansible.builtin.service:
-#     name: nginx 
+#     name: nginx
 #     state: restarted
